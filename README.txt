@@ -21,7 +21,7 @@ Credits:
 
 	Demo Images:
 		Unsplash (unsplash.com)
-		https://unsplash.com/@sarahdorweiler
+		https://unsplash.com/@clemono2
 
 	Icons:
 		Font Awesome (fortawesome.github.com/Font-Awesome)
