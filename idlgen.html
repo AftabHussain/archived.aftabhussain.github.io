@@ -55,7 +55,7 @@
 
 <li>IDL: </li>				
 
-<pre><code><span style="font-size: 15px">rpc int register_netdev(projection net_device_reg)</span></code></pre>
+<pre><code><span style="font-size: 15px">rpc int register_netdev(projection net_device_reg[alloc(callee) * dev])</span></code></pre>
 												
 <h4>Scenario 2: Structure variable access inside a function definition.</h4>
 <ul class="alt">
