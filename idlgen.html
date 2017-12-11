@@ -66,12 +66,12 @@
  dev -> flags |= IFF_NOARP;
 }</span></code></pre>
 
-				<li>IDL: </li>				
+<li>IDL: </li>				
 
 <pre><code><span style="font-size: 15px">projection <struct net_device> dummy_setup.dev {
 unsigned int priv_flags;
 }
-rpc void dummy_setup (projection * dummy_setup.dev)</span></code></pre>
+rpc void dummy_setup (projection dummy_setup.dev * dev)</span></code></pre>
 		
 
 
