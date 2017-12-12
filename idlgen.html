@@ -46,7 +46,7 @@
 <li>Here we see the IDL (Interface Description Language) code that should be generated for a Linux LCD (Light-weight Capability Domain) in different scenarios. </li>
 </ul>
 
-<h4>Scenario 1: Function calls passing structure variables.</h4>
+<h4>Scenario 1: Function calls from an isolated domain to the insecure domain, passing structure variables.</h4>
 <ul class="alt">
 
 <li>Actual Code: </li>	
@@ -69,7 +69,7 @@ err = register_netdev(dev_dummy);
 <li><code><span style="font-size: 15px">register_netdev</code></span> calls <code><span style="font-size: 15px">register_netdevice</code></span> which reads and writes on different fields of <code><span style="font-size: 15px">dev_dummy</code></span>.</li>
 </ul>
 												
-<h4>Scenario 2: Structure variable access inside a function definition.</h4>
+<h4>Scenario 2: Structure variable access in a function, defined in an isolated domain.</h4>
 <ul class="alt">
 
 <li>Actual Code: </li>	
