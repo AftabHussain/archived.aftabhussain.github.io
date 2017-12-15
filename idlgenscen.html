@@ -38,25 +38,66 @@
 									<div class="content">
 										<header>
 										
-											<h2>Shared Resources</h2>
+											<h2>IDL Generation Scenarios for Linux LCDs</h2>
 																						
-										</header>
-
-<header class="major">
-<h3>Projects</h3> 
-</header>	
 										
-<h3>Light-Weight Capability Domains Project</h3>
-<ul class="6u 12u$(small)">
-<li><a href="idlgenscen.html">IDL Generation Scenarios for Linux LCDs</a></li>
-<li><a href="idlgenalg.html">IDL Generation Algorithm for Linux LCDs</a></li>
+<ul class="alt">
+<li>Here we see IDL (Interface Description Language) code that should be generated for a Linux LCD (Light-weight Capability Domain) in different scenarios. </li>
 </ul>
-										
-<header class="major">
-<h3>Personal Docs</h3> 
-</header>
-<ul class="6u 12u$(small)">
-<li><a href="https://drive.google.com/open?id=1OloLQTuX4P4MlVTgozTnZi0Rc5Cv3Oxt">Resume</a></li>
+
+<h4>Scenario 1: Function calls from an isolated domain to the insecure domain, passing structure variables.</h4>
+<ul class="alt">
+
+<li>Actual Code: </li>	
+
+<pre><code><span style="font-size: 15px"><em style="color: green;">//LCD (dummy.c)</em>
+...
+struct net_device *dev_dummy; 
+int err;
+...
+err = register_netdev(dev_dummy);
+...</span></code></pre>
+
+<li>IDL: </li>				
+
+<pre><code><span style="font-size: 15px"><normal style="color: blue;">rpc</normal> int register_netdev(<normal style="color: blue;">projection</normal> net_device_reg[(<normal style="color: blue;">alloc(callee)</normal> * dev])</span></code></pre>
+</ul>
+
+<ul class="12u 12u$(small)">
+<li><code><span style="font-size: 15px">register_netdev</code></span> is undefined in dummy.c. It is defined in net/core/dev.c.</li>
+<li><code><span style="font-size: 15px">register_netdev</code></span> calls <code><span style="font-size: 15px">register_netdevice</code></span> which reads and writes on different fields of <code><span style="font-size: 15px">dev_dummy</code></span>.</li>
+</ul>
+												
+<h4>Scenario 2: Structure variable access in a function, defined in an isolated domain.</h4>
+<ul class="alt">
+
+<li>Actual Code: </li>	
+
+<pre><code><span style="font-size: 15px"><em style="color: green;">//LCD (dummy.c)</em>
+#include &lt;linux/netdevice.h&gt;
+...
+static void dummy_setup (struct net_device * dev){
+ dev -> priv_flags |= IFF_LIVE_ADDR_CHANGE;
+}
+...
+</span></code></pre>
+
+<pre><code><span style="font-size: 15px"><em style="color: green;">//Undecomposed Domain (linux/netdevice.h)</em>
+struct net_device {
+...
+unsigned int priv_flags;
+...
+</span></code></pre>
+
+
+<li>IDL: </li>				
+
+<pre><code><span style="font-size: 15px"><normal style="color: blue;">projection</normal> <struct net_device> dummy_setup.dev {
+unsigned int priv_flags;
+}
+<normal style="color: blue;">rpc</normal> void dummy_setup (<normal style="color: blue;">projection</normal> dummy_setup.dev * dev)</span></code></pre>
+		
+
 
 </ul>
 

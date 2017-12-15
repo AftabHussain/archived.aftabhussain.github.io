@@ -2544,6 +2544,12 @@
 
 /* Image */
 
+	myimage {
+    		width: 100%;
+    		height: auto;
+	}
+
+
 	.image {
 		border-radius: 0.375em;
 		border: 0;
@@ -2595,6 +2601,10 @@
 			.image.main img {
 				width: 100%;
 			}
+		.image.customah {
+			height: 100%;
+			width: auto;
+		}	
 
 	a.image {
 		overflow: hidden;
