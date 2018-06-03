@@ -1623,11 +1623,19 @@
 	}
 
 	body {
+		/* body color here */
 		background-color: #935d8c;
-		background-image: url("images/overlay.png"), -moz-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
-		background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
-		background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
-		background-image: url("images/overlay.png"), linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+		background-image: url("images/overlay.png"), -moz-linear-gradient(45deg, #e37682 15%, #003300 85%);
+		/*(45deg, #e37682 15%, #5f4d93 85%)*/
+
+		background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, #e37682 15%, #003300 85%);
+		/* -webkit-linear-gradient(45deg, #e37682 15%, #5f4d93 85%); */
+
+		background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, #e37682 15%, #003300 85%);
+		/* (45deg, #e37682 15%, #5f4d93 85%); */
+
+		background-image: url("images/overlay.png"), linear-gradient(45deg, #e37682 15%, #003300 85%);
+		/* (45deg, #e37682 15%, #5f4d93 85%); */
 	}
 
 		body.is-loading *, body.is-loading *:before, body.is-loading *:after {
@@ -1644,7 +1652,7 @@
 /* Type */
 
 	body {
-		background-color: #935d8c;
+		background-color: #460f0f;
 		color: rgba(255, 255, 255, 0.65);
 	}
 
@@ -3562,10 +3570,10 @@
 
 		#main header.major h2:after {
 			background-color: #dddddd;
-			background-image: -moz-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
-			background-image: -webkit-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
-			background-image: -ms-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
-			background-image: linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
+			background-image: -moz-linear-gradient(90deg, #efa8b0, #82b74b, #8cc9f0);
+			background-image: -webkit-linear-gradient(90deg, #efa8b0, #82b74b, #8cc9f0);
+			background-image: -ms-linear-gradient(90deg, #efa8b0, #82b74b, #8cc9f0);
+			background-image: linear-gradient(90deg, #efa8b0, #82b74b, #8cc9f0);
 		}
 
 		#main table tbody tr {
@@ -3573,7 +3581,7 @@
 		}
 
 			#main table tbody tr:nth-child(2n + 1) {
-				background-color: rgba(222, 222, 222, 0.25);
+				background-color: rgba(113, 218, 113);
 			}
 
 		#main table th {
